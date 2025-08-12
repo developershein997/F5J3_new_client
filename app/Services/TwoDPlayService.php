@@ -59,7 +59,7 @@ class TwoDPlayService
             $overallBreakAmount = $overallTwoDLimit->two_d_limit;
             Log::info("Overall 2D break limit: {$overallBreakAmount}");
 
-            if ($user->balanceFloat < $totalBetAmount) {
+            if ($user->wallet->balanceFloat < $totalBetAmount) {
                 throw new \Exception('Insufficient funds in your main balance.');
             }
 
@@ -73,13 +73,13 @@ class TwoDPlayService
             $slipNo = $this->generateUniqueSlipNumber();
             Log::info("Generated Slip No for batch: {$slipNo}");
 
-            $beforeBalance = $user->balanceFloat;
+            $beforeBalance = $user->wallet->balanceFloat;
 
             // Deduct total amount from user's balanceFloat
-            $user->balanceFloat -= $totalBetAmount;
+            $user->wallet->balanceFloat -= $totalBetAmount;
             $user->save();
 
-            $afterBalance = $user->balanceFloat;
+            $afterBalance = $user->wallet->balanceFloat;
             $playerName = $user->user_name;
             $agentId = $user->agent_id;
             $gameDate = Carbon::now()->format('Y-m-d');
