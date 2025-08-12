@@ -8,7 +8,6 @@ use Bavix\Wallet\Internal\Assembler\ExtraDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\OptionDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransactionCreatedEventAssembler;
 use Bavix\Wallet\Internal\Assembler\TransactionDtoAssembler;
-use Bavix\Wallet\Internal\Assembler\TransactionQueryAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferQueryAssembler;
@@ -33,7 +32,7 @@ use Bavix\Wallet\Internal\Transform\TransactionDtoTransformer;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformer;
 use Bavix\Wallet\Models\Transaction;
 use Bavix\Wallet\Models\Transfer;
-use Bavix\Wallet\Models\Wallet;
+use App\Models\Wallet;
 use Bavix\Wallet\Services\AssistantService;
 use Bavix\Wallet\Services\AtmService;
 use Bavix\Wallet\Services\AtomicService;
@@ -181,7 +180,7 @@ return [
      */
     'wallet' => [
         'table' => 'wallets',
-        'model' => Wallet::class,
+        'model' => \App\Models\Wallet::class,
         'creating' => [],
         'default' => [
             'name' => 'Default Wallet',

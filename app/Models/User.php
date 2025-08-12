@@ -16,7 +16,8 @@ use App\Models\Admin\TopTenWithdraw;
 use App\Models\PlaceBet;
 use App\Models\TwoDigit\TwoBet;
 use App\Models\TwoDigit\TwoBetSlip;
-use Bavix\Wallet\Interfaces\Wallet;
+use App\Models\Wallet;
+use Bavix\Wallet\Interfaces\Wallet as WalletInterface;
 use Bavix\Wallet\Traits\HasWallet;
 use Bavix\Wallet\Traits\HasWalletFloat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,7 +26,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Crypt;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements Wallet
+class User extends Authenticatable implements WalletInterface
 {
     use HasApiTokens, HasFactory, HasWalletFloat, Notifiable;
 
@@ -346,13 +347,5 @@ class User extends Authenticatable implements Wallet
     public function reportTransactionsAsPlayer()
     {
         return $this->hasMany(ReportTransaction::class, 'user_id');
-    }
-
-    /**
-     * Get the user's wallet.
-     */
-    public function wallet()
-    {
-        return $this->hasOne(Wallet::class, 'holder_id');
     }
 }
