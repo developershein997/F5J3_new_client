@@ -33,7 +33,24 @@ class WalletService
 
     public function withdraw(User $user, float $amount, TransactionName $transaction_name, array $meta = [])
     {
-        $user->withdrawFloat($amount, self::buildDepositMeta($user, $user, $transaction_name, $meta));
+        try {
+            \Log::info("Attempting to withdraw {$amount} from user {$user->id} for transaction: {$transaction_name->value}");
+            \Log::info("User balance before withdrawal: {$user->balanceFloat}");
+            
+            $result = $user->withdrawFloat($amount, self::buildWithdrawMeta($user, $user, $transaction_name, $meta));
+            
+            \Log::info("Withdrawal successful. User balance after withdrawal: {$user->balanceFloat}");
+            
+            return $result;
+        } catch (\Exception $e) {
+            \Log::error("Withdrawal failed for user {$user->id}: " . $e->getMessage(), [
+                'amount' => $amount,
+                'transaction_name' => $transaction_name->value,
+                'meta' => $meta,
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        }
     }
 
     public static function buildTransferMeta(User $user, User $target_user, TransactionName $transaction_name, array $meta = [])
@@ -46,6 +63,15 @@ class WalletService
     }
 
     public static function buildDepositMeta(User $user, User $target_user, TransactionName $transaction_name, array $meta = [])
+    {
+        return array_merge([
+            'name' => $transaction_name->value,
+            'opening_balance' => $user->balanceFloat,
+            'target_user_id' => $target_user->id,
+        ], $meta);
+    }
+
+    public static function buildWithdrawMeta(User $user, User $target_user, TransactionName $transaction_name, array $meta = [])
     {
         return array_merge([
             'name' => $transaction_name->value,

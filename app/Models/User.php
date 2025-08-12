@@ -347,4 +347,12 @@ class User extends Authenticatable implements Wallet
     {
         return $this->hasMany(ReportTransaction::class, 'user_id');
     }
+
+    /**
+     * Get the user's wallet.
+     */
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class, 'holder_id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\DigitTransactionName;
 use App\Helpers\SessionHelper;
 use App\Models\TwoDigit\Bettle;
 use App\Models\TwoDigit\ChooseDigit;
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Log; // Ensure this is correctly imported if you 
 
 class TwoDPlayService
 {
+    protected $walletService;
+
+    public function __construct(WalletService $walletService)
+    {
+        $this->walletService = $walletService;
+    }
+
     /**
      * Handles the logic for placing a 2D bet using custom main_balance.
      *
@@ -49,6 +57,16 @@ class TwoDPlayService
         try {
             DB::beginTransaction();
 
+            // Validate that totalBetAmount matches the sum of individual amounts
+            $calculatedTotal = collect($amounts)->sum('amount');
+            if ($calculatedTotal != $totalBetAmount) {
+                $amountDetails = collect($amounts)->map(function($amount) {
+                    return "Number {$amount['num']}: {$amount['amount']}";
+                })->implode(', ');
+                
+                throw new \Exception("Total bet amount mismatch! You sent totalAmount: {$totalBetAmount}, but the sum of individual amounts is: {$calculatedTotal}. Amount details: {$amountDetails}");
+            }
+
             $userPersonalLimit = $user->two_d_limit ?? null;
             Log::info('User personal 2D limit: '.($userPersonalLimit ?? 'Not Set'));
 
@@ -74,12 +92,27 @@ class TwoDPlayService
             Log::info("Generated Slip No for batch: {$slipNo}");
 
             $beforeBalance = $user->wallet->balanceFloat;
+            Log::info("Before withdrawal - User ID: {$user->id}, Balance: {$beforeBalance}, Total Bet Amount: {$totalBetAmount}");
 
-            // Deduct total amount from user's balanceFloat
-            $user->wallet->balanceFloat -= $totalBetAmount;
-            $user->save();
+            // Use proper wallet withdrawal instead of direct balance modification
+            $this->walletService->withdraw($user, $totalBetAmount, DigitTransactionName::TwoDigitBet, [
+                'slip_no' => $slipNo,
+                'session' => $sessionType,
+                'game_date' => $gameDate,
+                'game_time' => $gameTime,
+                'bet_details' => $amounts
+            ]);
+
+            // Refresh the user model to get the updated balance
+            $user->refresh();
 
             $afterBalance = $user->wallet->balanceFloat;
+            Log::info("After withdrawal - User ID: {$user->id}, Balance: {$afterBalance}, Expected Balance: " . ($beforeBalance - $totalBetAmount));
+            
+            if ($afterBalance != ($beforeBalance - $totalBetAmount)) {
+                Log::warning("Balance mismatch detected! Expected: " . ($beforeBalance - $totalBetAmount) . ", Actual: {$afterBalance}");
+            }
+
             $playerName = $user->user_name;
             $agentId = $user->agent_id;
             $gameDate = Carbon::now()->format('Y-m-d');
