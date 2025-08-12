@@ -8,6 +8,7 @@ use Bavix\Wallet\Internal\Assembler\ExtraDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\OptionDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransactionCreatedEventAssembler;
 use Bavix\Wallet\Internal\Assembler\TransactionDtoAssembler;
+use Bavix\Wallet\Internal\Assembler\TransactionQueryAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferLazyDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\TransferQueryAssembler;
