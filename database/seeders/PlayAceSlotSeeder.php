@@ -15,7 +15,7 @@ class PlayAceSlotSeeder extends Seeder
      */
     public function run()
     {
-        $jsonPath = base_path('app/Console/Commands/data/playace_casino.json');
+        $jsonPath = base_path('app/Console/Commands/data/playace_slot.json');
         $data = json_decode(File::get($jsonPath), true);
         $now = Carbon::now();
 
