@@ -10,7 +10,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30001",
@@ -20,7 +21,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30002",
@@ -30,7 +32,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30003",
@@ -40,7 +43,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30004",
@@ -50,7 +54,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30005",
@@ -60,7 +65,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30006",
@@ -70,7 +76,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30007",
@@ -80,7 +87,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "30008",
@@ -90,217 +98,8 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30010",
-            "game_name": "BlackPink",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30010.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30011",
-            "game_name": "Dragon FAFAFA",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30011.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30012",
-            "game_name": "Mahjong Style",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30012.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30013",
-            "game_name": "MetaSpace",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30013.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30014",
-            "game_name": "Princess and the Evil Witch",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30014.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30015",
-            "game_name": "Fortune Dance",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30015.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30016",
-            "game_name": "Kraken Queen",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30016.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30017",
-            "game_name": "Into the Fay: Snowie",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30017.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30018",
-            "game_name": "Into the Fay: Nixie",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30018.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30019",
-            "game_name": "Mobox Olympia",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30019.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30020",
-            "game_name": "Apes Squad",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30020.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30021",
-            "game_name": "MaskofTruth",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30021.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30022",
-            "game_name": "Panda Realm",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30022.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30023",
-            "game_name": "Into the Fay: Ashley",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30023.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30024",
-            "game_name": "DragonWish",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30024.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30025",
-            "game_name": "FieryLady",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30025.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30027",
-            "game_name": "Block Buster",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30027.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30028",
-            "game_name": "Sanctum of Savannah",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30028.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30029",
-            "game_name": "Bloodmoon Amazonia",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30029.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30030",
-            "game_name": "Santa's Payday",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30030.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "30031",
-            "game_name": "Advent of Dragon",
-            "game_type": "SLOT",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30031.png",
-            "product_id": 1237,
-            "product_code": 1018,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "35002",
@@ -310,7 +109,184 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30010",
+            "game_name": "BlackPink",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30010.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30011",
+            "game_name": "Dragon FAFAFA",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30011.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30012",
+            "game_name": "Mahjong Style",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30012.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30013",
+            "game_name": "MetaSpace",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30013.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30014",
+            "game_name": "Princess and the Evil Witch",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30014.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30015",
+            "game_name": "Fortune Dance",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30015.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30016",
+            "game_name": "Kraken Queen",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30016.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30017",
+            "game_name": "Into the Fay: Snowie",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30017.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30018",
+            "game_name": "Into the Fay: Nixie",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30018.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30019",
+            "game_name": "Mobox Olympia",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30019.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30020",
+            "game_name": "Apes Squad",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30020.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30021",
+            "game_name": "MaskofTruth",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30021.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30022",
+            "game_name": "Panda Realm",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30022.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30023",
+            "game_name": "Into the Fay: Ashley",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30023.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30024",
+            "game_name": "DragonWish",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30024.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30025",
+            "game_name": "FieryLady",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30025.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "39999",
@@ -320,7 +296,63 @@
             "product_id": 1237,
             "product_code": 1018,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30027",
+            "game_name": "Block Buster",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30027.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30028",
+            "game_name": "Sanctum of Savannah",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30028.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30029",
+            "game_name": "Bloodmoon Amazonia",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30029.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30030",
+            "game_name": "Santa's Payday",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30030.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "30031",
+            "game_name": "Advent of Dragon",
+            "game_type": "SLOT",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1018/SLOT/30031.png",
+            "product_id": 1237,
+            "product_code": 1018,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         }
     ],
     "pagination": {

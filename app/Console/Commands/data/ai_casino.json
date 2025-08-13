@@ -3,16 +3,6 @@
     "message": "",
     "provider_games": [
         {
-            "game_code": "HASH_ANDAR_BAHAR",
-            "game_name": "Andar Bahar",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_ANDAR_BAHAR.png",
-            "product_id": 1178,
-            "product_code": 1149,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
             "game_code": "HASH_BACCARAT",
             "game_name": "Baccarat",
             "game_type": "LIVE_CASINO",
@@ -20,27 +10,8 @@
             "product_id": 1178,
             "product_code": 1149,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "HASH_BLACK_JACK",
-            "game_name": "Black Jack",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_BLACK_JACK.png",
-            "product_id": 1178,
-            "product_code": 1149,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "HASH_CRAPS",
-            "game_name": "Craps",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_CRAPS.png",
-            "product_id": 1178,
-            "product_code": 1149,
-            "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "HASH_ROULETTE",
@@ -50,7 +21,8 @@
             "product_id": 1178,
             "product_code": 1149,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "HASH_SICBO",
@@ -60,7 +32,30 @@
             "product_id": 1178,
             "product_code": 1149,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "HASH_CRAPS",
+            "game_name": "Craps",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_CRAPS.png",
+            "product_id": 1178,
+            "product_code": 1149,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "HASH_ANDAR_BAHAR",
+            "game_name": "Andar Bahar",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_ANDAR_BAHAR.png",
+            "product_id": 1178,
+            "product_code": 1149,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "HASH_SPEED_FRENZY",
@@ -70,12 +65,35 @@
             "product_id": 1178,
             "product_code": 1149,
             "support_currency": "MMK",
-            "status": "ACTIVATED"
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "HASH_BLACK_JACK",
+            "game_name": "Black Jack",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_BLACK_JACK.png",
+            "product_id": 1178,
+            "product_code": 1149,
+            "support_currency": "MMK",
+            "status": "DEACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "HASH_COLOR_GAME",
+            "game_name": "Color Game",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1149/LIVE_CASINO/HASH_COLOR_GAME.png",
+            "product_id": 1178,
+            "product_code": 1149,
+            "support_currency": "MMK",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         }
     ],
     "pagination": {
         "size": 0,
         "offset": 0,
-        "total": "7"
+        "total": "8"
     }
 }

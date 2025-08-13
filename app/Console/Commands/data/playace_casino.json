@@ -9,8 +9,9 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/BAC.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "BJ",
@@ -19,38 +20,9 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/BJ.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "DT",
-            "game_name": "Dragon Tiger",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/DT.png",
-            "product_id": 1312,
-            "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "LBAC",
-            "game_name": "MiCard Baccarat",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/LBAC.png",
-            "product_id": 1312,
-            "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "LINK",
-            "game_name": "Link Bet",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/LINK.png",
-            "product_id": 1312,
-            "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "NN",
@@ -59,8 +31,9 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/NN.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "ROU",
@@ -69,18 +42,20 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/ROU.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
-            "game_code": "SBAC",
-            "game_name": "INS Bac",
+            "game_code": "LBAC",
+            "game_name": "MiCard Baccarat",
             "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/SBAC.png",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/LBAC.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "SG",
@@ -89,8 +64,9 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/SG.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "SHB",
@@ -99,18 +75,9 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/SHB.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
-        },
-        {
-            "game_code": "VDG",
-            "game_name": "Xoc Dia",
-            "game_type": "LIVE_CASINO",
-            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/VDG.png",
-            "product_id": 1312,
-            "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         },
         {
             "game_code": "ZJH",
@@ -119,8 +86,53 @@
             "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/ZJH.png",
             "product_id": 1312,
             "product_code": 1203,
-            "support_currency": "INR,MYR,GBP,MMK,IDR,THB,USD,EUR,VND,KRW,AUD,CAD,BRL,CNY,JPY",
-            "status": "ACTIVATED"
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "LINK",
+            "game_name": "Link Bet",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/LINK.png",
+            "product_id": 1312,
+            "product_code": 1203,
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "DT",
+            "game_name": "Dragon Tiger",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/DT.png",
+            "product_id": 1312,
+            "product_code": 1203,
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "SBAC",
+            "game_name": "INS Bac",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/SBAC.png",
+            "product_id": 1312,
+            "product_code": 1203,
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
+        },
+        {
+            "game_code": "VDG",
+            "game_name": "Xoc Dia",
+            "game_type": "LIVE_CASINO",
+            "image_url": "https://images.gscplusmd.com/statics/production/images/games/1203/LIVE_CASINO/VDG.png",
+            "product_id": 1312,
+            "product_code": 1203,
+            "support_currency": "AUD,KRW,GBP,INR,MYR,IDR,VND,JPY,CAD,CNY,USD,EUR,MMK,BRL,THB",
+            "status": "ACTIVATED",
+            "allow_free_round": false
         }
     ],
     "pagination": {
