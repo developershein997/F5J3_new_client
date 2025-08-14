@@ -34,6 +34,7 @@ use App\Http\Controllers\Api\V1\WithDrawRequestController;
 use App\Http\Controllers\Api\V2\Shan\ShankomeeGetBalanceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\Player\AutoPlayerCreateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,9 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('product-list', [ProductListController::class, 'index']);
 Route::get('operators/provider-games', [GameListController::class, 'index']);
+
+// auto player create route
+Route::post('/guest-register', [AutoPlayerCreateController::class, 'register']);
 
 Route::prefix('v1/api/seamless')->group(function () {
     Route::post('balance', [GetBalanceController::class, 'getBalance']);
