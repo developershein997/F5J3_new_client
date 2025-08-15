@@ -48,13 +48,21 @@ class ThreeDController extends Controller
             'amounts' => 'required|array|min:1',
             'amounts.*.num' => 'required|string|size:3|regex:/^[0-9]{3}$/',
             'amounts.*.amount' => 'required|numeric|min:0',
-            'drawSession' => 'required|string',
         ]);
 
         // Retrieve the validated data from the request
         $totalAmount = $request->input('totalAmount');
         $amounts = $request->input('amounts');
-        $drawSession = $request->input('drawSession');
+
+        // 3. Get current open draw session from database
+        $drawSession = \App\Models\ThreeDigit\ThreeDDrawSession::where('is_open', true)->first();
+        
+        if (!$drawSession) {
+            Log::warning('ThreeDController: No open draw session found.');
+            return $this->error('Betting Closed', 'No open draw session available at this time. Please try again later.', 400);
+        }
+
+        $drawSession = $drawSession->draw_session;
 
         Log::info('ThreeDController: Validated amounts received', [
             'totalAmount' => $totalAmount,

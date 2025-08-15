@@ -274,17 +274,33 @@ $permutations = $this->generatePermutations($digits);
 ## 📊 API Endpoints
 
 ### Betting Operations
-```http
-POST /api/threed-bet
-{
-    "totalBetAmount": 100.00,
+
+#### Submit 3D Bet
+- **URL**: `POST /api/threed-bet`
+- **Authentication**: Required
+- **Request Body**:
+  ```json
+  {
+    "totalAmount": 700,
     "amounts": [
-        {"num": "123", "amount": 50.00},
-        {"num": "456", "amount": 50.00}
-    ],
-    "drawSession": "2024-01-16"
-}
-```
+      {"num": "354", "amount": 100},
+      {"num": "453", "amount": 100},
+      {"num": "435", "amount": 100},
+      {"num": "543", "amount": 100},
+      {"num": "534", "amount": 100},
+      {"num": "355", "amount": 100},
+      {"num": "454", "amount": 100}
+    ]
+  }
+  ```
+- **Note**: Draw session is automatically determined from the current open session in the database
+- **Response**:
+  ```json
+  {
+    "success": true,
+    "message": "ထီအောင်မြင်စွာ ထိုးပြီးပါပြီ။"
+  }
+  ```
 
 ### Information Retrieval
 ```http
@@ -303,6 +319,7 @@ POST /api/threed/permutations
 4. **UI Responsiveness**: Landscape-friendly grid layout
 5. **Undefined Variable $availableDrawSessions**: Fixed in all controller methods for consistency
 6. **Ledger System**: Fixed to show single draw session with all numbers 000-999 and bet amounts
+7. **API Draw Session**: Removed required validation, automatically gets current open session from database
 
 ### Debug Commands
 ```bash
