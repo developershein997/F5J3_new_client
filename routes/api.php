@@ -29,6 +29,7 @@ use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\Shan\ShanGetBalanceController;
 use App\Http\Controllers\Api\V1\Shan\ShanTransactionController;
 use App\Http\Controllers\Api\V1\TwoDigit\TwoDigitBetController;
+use App\Http\Controllers\Api\ThreeDController;
 use App\Http\Controllers\Api\V1\Wallet\WalletController;
 use App\Http\Controllers\Api\V1\WithDrawRequestController;
 use App\Http\Controllers\Api\V2\Shan\ShankomeeGetBalanceController;
@@ -102,6 +103,21 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // evening-twod-bet-slips
     Route::get('/evening-twod-bet-slips', [TwoDigitBetController::class, 'eveningSessionSlip']);
     Route::get('/two-d-daily-winners', [TwoDigitBetController::class, 'dailyWinners']);
+    
+    // 3D routes
+    Route::post('/threed-bet', [ThreeDController::class, 'submitBet']);
+    Route::get('/threed-bet/history', [ThreeDController::class, 'getBetHistory']);
+    Route::get('/threed-bet/{slipId}', [ThreeDController::class, 'getBetDetails']);
+    Route::get('/threed/draw-info', [ThreeDController::class, 'getCurrentDrawInfo']);
+    Route::get('/threed/draw-sessions', [ThreeDController::class, 'getDrawSessions']);
+    Route::get('/threed/limits', [ThreeDController::class, 'getBettingLimits']);
+    Route::get('/threed/break-groups', [ThreeDController::class, 'getBreakGroups']);
+    Route::post('/threed/quick-patterns', [ThreeDController::class, 'getQuickPatterns']);
+    Route::post('/threed/permutations', [ThreeDController::class, 'generatePermutations']);
+    Route::get('/threed-bet-slips', [ThreeDController::class, 'myBetSlips']);
+    Route::get('/threed-bet-slips-by-session', [ThreeDController::class, 'getBetSlipsBySession']);
+    Route::get('/threed-daily-winners', [ThreeDController::class, 'dailyWinners']);
+    
     // shan launch game
     Route::post('shan-launch-game', [ShanLaunchGameController::class, 'launch']);
 

@@ -435,6 +435,100 @@
 
                         <!-- agent 2d -->
 
+                        <!-- 3D -->
+
+                        @can('owner_access')
+                            <li
+                                class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-cube"></i>
+                                    <p>
+                                        3D
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.threed.settings') }}"
+                                            class="nav-link {{ Route::current()->getName() == 'admin.threed.settings' ? 'active' : '' }}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>3D Settings</p>
+                                        </a>
+                                    </li>
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.threed.bet-slip-list') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.bet-slip-list' ? 'active' : '' }}">
+                                                <i class="fas fa-list-alt nav-icon"></i>
+                                                <p>3D Bet Slip List</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.threed.daily-ledger') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.daily-ledger' ? 'active' : '' }}">
+                                                <i class="fas fa-book nav-icon"></i>
+                                                <p>3D Daily Ledger</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.threed.daily-winners') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.daily-winners' ? 'active' : '' }}">
+                                                <i class="fas fa-trophy nav-icon"></i>
+                                                <p>3D Daily Winners</p>
+                                            </a>
+                                        </li>
+
+
+                                </ul>
+                            </li>
+                        @endcan
+
+
+                        <!-- agent 3d -->
+                        @can('agent_access')
+                            <li
+                                class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-cube"></i>
+                                    <p>
+                                        3D
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+
+
+                                <li class="nav-item">
+                                            <a href="{{ route('admin.threed.bet-slip-list') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.bet-slip-list' ? 'active' : '' }}">
+                                                <i class="fas fa-list-alt nav-icon"></i>
+                                                <p>3D Bet Slip List</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.threed.daily-ledger') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.daily-ledger' ? 'active' : '' }}">
+                                                <i class="fas fa-book nav-icon"></i>
+                                                <p>3D Daily Ledger</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.threed.daily-winners') }}"
+                                                class="nav-link {{ Route::current()->getName() == 'admin.threed.daily-winners' ? 'active' : '' }}">
+                                                <i class="fas fa-trophy nav-icon"></i>
+                                                <p>3D Daily Winners</p>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                        @endcan
+
+                        <!-- agent 3d -->
+
                         <li
                             class="nav-item">
                             <a href="#" class="nav-link">
