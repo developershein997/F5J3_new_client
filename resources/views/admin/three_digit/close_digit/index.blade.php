@@ -979,7 +979,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setDateBySession() {
         if (drawSessionSelect.value) {
             resultDateInput.value = drawSessionSelect.value;
-            resultTimeInput.value = '14:30'; // Default draw time
+            resultTimeInput.value = '15:30'; // Default draw time
         }
     }
     
