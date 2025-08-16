@@ -427,7 +427,7 @@ class ThreeDController extends Controller
             $winDigit = $result->win_number;
 
             $query = DB::table('three_d_bets')
-                ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(bet_amount * 800) as win_amount'))
+                ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(potential_payout) as win_amount'))
                 ->where('game_date', $date)
                 ->where('draw_session', $drawSession)
                 ->where('bet_number', $winDigit)
@@ -458,7 +458,7 @@ class ThreeDController extends Controller
                     ->where('draw_session', $session)
                     ->where('bet_number', $res->win_number)
                     ->where('win_lose', true)
-                    ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(bet_amount * 800) as win_amount'))
+                    ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(potential_payout) as win_amount'))
                     ->groupBy('bet_number')
                     ->get();
 

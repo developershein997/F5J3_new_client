@@ -82,7 +82,7 @@ three_d_results
 three_d_limits
 - min_bet_amount, max_bet_amount
 - max_total_bet
-- payout_multiplier (800x)
+- payout_multiplier (legacy field, now uses new prize structure)
 - is_active
 
 -- 3D Close Digits
@@ -115,6 +115,32 @@ three_d_draw_sessions
 ### Controllers
 - `ThreeDigitController` (Admin): Settings, reports, management
 - `ThreeDController` (API): Client-side betting operations
+
+## 🏆 Prize Structure
+
+### New 3D Prize System
+- **First Prize**: 500x bet amount (exact number match)
+- **Permutation Prize**: 100x bet amount (for each permutation match)
+
+### Prize Calculation Example
+- **Player bets**: 123 with $100
+- **Winning number**: 123
+- **First Prize**: $100 × 500 = $50,000 (exact match)
+- **Total Prize**: $50,000
+
+**Another Example**:
+- **Player bets**: 123 with $100
+- **Winning number**: 132 (permutation of 123)
+- **Permutation Prize**: $100 × 100 = $10,000 (permutation match)
+- **Total Prize**: $10,000
+
+### Permutation System
+- **Auto-generation**: All possible arrangements of bet number
+- **Example**: Bet 123 generates permutations: 132, 213, 231, 321, 312
+- **Prize Structure**: 
+  - Exact match (bet number = winning number): 500x bet amount
+  - Permutation match (winning number is a permutation of bet number): 100x bet amount
+- **Mutually Exclusive**: Player gets either exact match prize OR permutation prize, not both
 
 ## 🎮 Admin Panel Features
 
@@ -294,6 +320,10 @@ $permutations = $this->generatePermutations($digits);
   }
   ```
 - **Note**: Draw session is automatically determined from the current open session in the database
+- **Prize Structure**: 
+  - First Prize: 500x bet amount (exact match)
+  - Permutation Prize: 100x bet amount (permutation match)
+  - Note: Only one prize type applies per bet (exact OR permutation)
 - **Response**:
   ```json
   {

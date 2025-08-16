@@ -209,7 +209,7 @@ class ThreeDigitController extends Controller
     }
 
     /**
-     * Store 3D result
+     * Store 3D result and process winners
      */
     public function storeThreeDResult(Request $request)
     {
@@ -231,7 +231,7 @@ class ThreeDigitController extends Controller
                 'draw_session' => $drawSession,
                 'result_date' => $request->result_date,
                 'result_time' => $request->result_time,
-                'status' => 'declared',
+                'status' => 'winners_paid',
             ]);
             Log::info('ThreeDResult created', ['threeDResult' => $threeDResult]);
 
@@ -239,39 +239,69 @@ class ThreeDigitController extends Controller
             $allBets = ThreeDBet::where('draw_session', $drawSession)->get();
             Log::info('Fetched bets', ['count' => $allBets->count()]);
 
-            // Get active limit for payout calculation
-            $limit = ThreeDLimit::getActiveLimit();
-            $payoutMultiplier = $limit ? $limit->payout_multiplier : 800; // Default 800x
-
             // Process each bet
             foreach ($allBets as $bet) {
-                $isWinner = $bet->bet_number == $win_number;
+                $totalPrize = 0;
+                $prizeDetails = [];
+                
+                // Check for exact match (First Prize: 500x)
+                $isExactWinner = $bet->bet_number == $win_number;
+                if ($isExactWinner) {
+                    $firstPrize = $bet->bet_amount * 500;
+                    $totalPrize += $firstPrize;
+                    $prizeDetails[] = "First Prize: {$firstPrize} (500x)";
+                    Log::info('Exact match found', [
+                        'bet_id' => $bet->id,
+                        'bet_number' => $bet->bet_number,
+                        'win_number' => $win_number,
+                        'first_prize' => $firstPrize
+                    ]);
+                } else {
+                    // Check for permutation match (Permutation Prize: 100x)
+                    $permutations = $bet->generatePermutations();
+                    $isPermutationWinner = in_array($win_number, $permutations);
+                    
+                    if ($isPermutationWinner) {
+                        $permutationPrize = $bet->bet_amount * 10; // 10x for permutation match
+                        $totalPrize += $permutationPrize;
+                        $prizeDetails[] = "Permutation Prize: {$permutationPrize} (100x for permutation match)";
+                        Log::info('Permutation match found', [
+                            'bet_id' => $bet->id,
+                            'bet_number' => $bet->bet_number,
+                            'win_number' => $win_number,
+                            'permutation_prize' => $permutationPrize
+                        ]);
+                    }
+                }
 
-                if ($isWinner) {
-                    $prize = $bet->bet_amount * $payoutMultiplier;
-
+                // Process prize if any winnings
+                if ($totalPrize > 0) {
                     // Update player wallet using WalletService
                     $player = User::find($bet->user_id);
                     if ($player) {
                         try {
-                            app(WalletService::class)->deposit($player, $prize, DigitTransactionName::ThreeDigitBetWin, [
+                            app(WalletService::class)->deposit($player, $totalPrize, DigitTransactionName::ThreeDigitBetWin, [
                                 'bet_id' => $bet->id,
                                 'win_number' => $win_number,
                                 'draw_session' => $drawSession,
                                 'result_date' => $request->result_date,
                                 'bet_amount' => $bet->bet_amount,
-                                'prize_amount' => $prize,
-                                'slip_id' => $bet->slip_id
+                                'prize_amount' => $totalPrize,
+                                'prize_details' => implode(', ', $prizeDetails),
+                                'slip_id' => $bet->slip_id,
+                                'is_exact_winner' => $isExactWinner,
+                                'is_permutation_winner' => !$isExactWinner && $isPermutationWinner ?? false
                             ]);
                             Log::info('Prize deposited to player wallet', [
                                 'user_id' => $player->id, 
-                                'prize' => $prize,
+                                'total_prize' => $totalPrize,
+                                'prize_details' => $prizeDetails,
                                 'new_balance' => $player->balanceFloat
                             ]);
                         } catch (\Exception $e) {
                             Log::error('Failed to deposit prize to player wallet', [
                                 'user_id' => $player->id,
-                                'prize' => $prize,
+                                'total_prize' => $totalPrize,
                                 'error' => $e->getMessage()
                             ]);
                             throw $e;
@@ -280,9 +310,13 @@ class ThreeDigitController extends Controller
 
                     // Update bet as win
                     $bet->win_lose = true;
-                    $bet->potential_payout = $prize;
+                    $bet->potential_payout = $totalPrize;
                     $bet->prize_sent = true;
-                    Log::info('Bet marked as win', ['bet_id' => $bet->id, 'prize' => $prize]);
+                    Log::info('Bet marked as win', [
+                        'bet_id' => $bet->id, 
+                        'total_prize' => $totalPrize,
+                        'prize_details' => $prizeDetails
+                    ]);
                 } else {
                     // Update bet as lose
                     $bet->win_lose = false;
@@ -306,7 +340,7 @@ class ThreeDigitController extends Controller
             $threeDResult->update(['status' => 'completed']);
         });
 
-        return redirect()->route('admin.threed.settings')->with('success', '3D Result added and winners paid.');
+        return redirect()->route('admin.threed.settings')->with('success', '3D Result added and winners paid with new prize structure.');
     }
 
     /**
