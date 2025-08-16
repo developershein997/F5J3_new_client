@@ -40,12 +40,12 @@
                                     <div class="alert alert-info">
                                         <i class="fas fa-info-circle"></i> {{ $sessionData['message'] }}
                                     </div>
-                                @elseif(isset($sessionData['win_number']))
+                                @elseif(isset($sessionData['win_digit']))
                                     <div class="text-center mb-4">
                                         <div class="alert alert-success">
                                             <h4 class="mb-2">
                                                 <i class="fas fa-trophy text-warning"></i> 
-                                                Winning Number: <span class="badge badge-success badge-lg">{{ $sessionData['win_number'] }}</span>
+                                                Winning Number: <span class="badge badge-success badge-lg">{{ $sessionData['win_digit'] }}</span>
                                             </h4>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                                     <tr>
                                                         <th>Winning Number</th>
                                                         <th>Total Bet Amount</th>
-                                                        <th>Win Amount (800x)</th>
+                                                        <th>Win Amount (Actual Prize)</th>
                                                         <th>Break Group</th>
                                                         <th>Winners Count</th>
                                                     </tr>
@@ -126,7 +126,7 @@
                                         <tr>
                                             <th>Winning Number</th>
                                             <th>Total Bet Amount</th>
-                                            <th>Win Amount (800x)</th>
+                                            <th>Win Amount (Actual Prize)</th>
                                             <th>Break Group</th>
                                             <th>Status</th>
                                         </tr>

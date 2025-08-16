@@ -476,6 +476,11 @@ class ThreeDigitController extends Controller
         $user = Auth::user();
         $drawSession = $request->input('draw_session');
         $date = $request->input('date') ?? now()->format('Y-m-d');
+        
+        // If no specific draw session is selected, show all sessions with results
+        if (!$drawSession || $drawSession === 'all') {
+            $drawSession = null;
+        }
 
         if ($drawSession) {
             // Return only one draw session
@@ -489,12 +494,12 @@ class ThreeDigitController extends Controller
 
             $winDigit = $result->win_number;
 
+            // Get all winning bets (both exact and permutation matches)
             $query = DB::table('three_d_bets')
-                ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(bet_amount * 800) as win_amount'))
-                ->where('game_date', $date)
+                ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(potential_payout) as win_amount'))
                 ->where('draw_session', $drawSession)
-                ->where('bet_number', $winDigit)
-                ->where('win_lose', true);
+                ->where('win_lose', true)
+                ->where('prize_sent', true);
 
             // Restrict by agent
             if (in_array($user->type, [\App\Enums\UserType::Agent, \App\Enums\UserType::SubAgent])) {
@@ -509,7 +514,7 @@ class ThreeDigitController extends Controller
             return view('admin.three_digit.winner.index', [
                 'date' => $date,
                 'drawSession' => $drawSession,
-                'winDigit' => $winDigit,
+                'results' => $result,
                 'winners' => $winners,
                 'availableDrawSessions' => $availableDrawSessions,
             ]);
@@ -525,12 +530,12 @@ class ThreeDigitController extends Controller
                 ->first();
 
             if ($res && $res->win_number) {
+                // Get all winning bets (both exact and permutation matches)
                 $query = DB::table('three_d_bets')
-                    ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(bet_amount * 800) as win_amount'))
-                    ->where('game_date', $date)
+                    ->select('bet_number', DB::raw('SUM(bet_amount) as total_bet'), DB::raw('SUM(potential_payout) as win_amount'))
                     ->where('draw_session', $session)
-                    ->where('bet_number', $res->win_number)
-                    ->where('win_lose', true);
+                    ->where('win_lose', true)
+                    ->where('prize_sent', true);
 
                 // Restrict by agent if not owner
                 if (in_array($user->type, [\App\Enums\UserType::Agent, \App\Enums\UserType::SubAgent])) {
