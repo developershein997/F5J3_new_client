@@ -475,4 +475,148 @@ class ThreeDController extends Controller
             'latest_results' => $data,
         ], 'Latest 3D winners (with winners list)');
     }
+
+    /**
+     * Get 3D winner list by draw session
+     */
+    public function getWinnerListBySession(Request $request)
+    {
+        $request->validate([
+            'draw_session' => 'required|string',
+            'date' => 'nullable|date',
+            'include_details' => 'nullable|boolean'
+        ]);
+
+        $drawSession = $request->input('draw_session');
+        $date = $request->input('date') ?? now()->format('Y-m-d');
+        $includeDetails = $request->input('include_details', false);
+
+        // Get the winning result for this draw session
+        $result = DB::table('three_d_results')
+            ->where('draw_session', $drawSession)
+            ->first();
+
+        if (!$result || !$result->win_number) {
+            return $this->error('No Result', 'Winning result not found for this draw session.', 404);
+        }
+
+        $winDigit = $result->win_number;
+
+        // Get all winning bets for this draw session
+        $query = DB::table('three_d_bets as tdb')
+            ->join('users as u', 'tdb.user_id', '=', 'u.id')
+            ->select(
+                'tdb.id',
+                'tdb.bet_number',
+                'tdb.bet_amount',
+                'tdb.potential_payout',
+                'tdb.game_date',
+                'tdb.game_time',
+                'tdb.slip_id',
+                'u.user_name',
+                'u.phone',
+                DB::raw('SUM(tdb.bet_amount) as total_bet_amount'),
+                DB::raw('SUM(tdb.potential_payout) as total_win_amount')
+            )
+            ->where('tdb.game_date', $date)
+            ->where('tdb.draw_session', $drawSession)
+            ->where('tdb.bet_number', $winDigit)
+            ->where('tdb.win_lose', true)
+            ->groupBy('tdb.user_id', 'tdb.bet_number');
+
+        if ($includeDetails) {
+            // Include more detailed information
+            $query->addSelect(
+                'tdb.before_balance',
+                'tdb.after_balance',
+                'tdb.break_group',
+                'tdb.is_permutation'
+            );
+        }
+
+        $winners = $query->get();
+
+        // Get summary statistics
+        $summary = [
+            'total_winners' => $winners->count(),
+            'total_bet_amount' => $winners->sum('total_bet_amount'),
+            'total_win_amount' => $winners->sum('total_win_amount'),
+            'average_bet_amount' => $winners->count() > 0 ? round($winners->avg('total_bet_amount'), 2) : 0,
+            'highest_bet_amount' => $winners->max('total_bet_amount'),
+            'lowest_bet_amount' => $winners->min('total_bet_amount')
+        ];
+
+        // Group winners by bet amount ranges for analysis
+        $betAmountRanges = [
+            '0-100' => $winners->where('total_bet_amount', '<=', 100)->count(),
+            '101-500' => $winners->where('total_bet_amount', '>', 100)->where('total_bet_amount', '<=', 500)->count(),
+            '501-1000' => $winners->where('total_bet_amount', '>', 500)->where('total_bet_amount', '<=', 1000)->count(),
+            '1001-5000' => $winners->where('total_bet_amount', '>', 1000)->where('total_bet_amount', '<=', 5000)->count(),
+            '5000+' => $winners->where('total_bet_amount', '>', 5000)->count()
+        ];
+
+        $response = [
+            'draw_session' => $drawSession,
+            'date' => $date,
+            'winning_number' => $winDigit,
+            'result_date' => $result->result_date,
+            'summary' => $summary,
+            'bet_amount_ranges' => $betAmountRanges,
+            'winners' => $winners
+        ];
+
+        return $this->success($response, "3D winner list for draw session {$drawSession} retrieved successfully");
+    }
+
+    /**
+     * Get 3D winner list for multiple draw sessions
+     */
+    public function getWinnerListForMultipleSessions(Request $request)
+    {
+        $request->validate([
+            'draw_sessions' => 'required|array',
+            'draw_sessions.*' => 'string',
+            'date' => 'nullable|date'
+        ]);
+
+        $drawSessions = $request->input('draw_sessions');
+        $date = $request->input('date') ?? now()->format('Y-m-d');
+        $results = [];
+
+        foreach ($drawSessions as $session) {
+            $result = DB::table('three_d_results')
+                ->where('draw_session', $session)
+                ->first();
+
+            if ($result && $result->win_number) {
+                $winners = DB::table('three_d_bets')
+                    ->select(
+                        'bet_number',
+                        DB::raw('COUNT(DISTINCT user_id) as winner_count'),
+                        DB::raw('SUM(bet_amount) as total_bet_amount'),
+                        DB::raw('SUM(potential_payout) as total_win_amount')
+                    )
+                    ->where('game_date', $date)
+                    ->where('draw_session', $session)
+                    ->where('bet_number', $result->win_number)
+                    ->where('win_lose', true)
+                    ->groupBy('bet_number')
+                    ->first();
+
+                $results[] = [
+                    'draw_session' => $session,
+                    'winning_number' => $result->win_number,
+                    'result_date' => $result->result_date,
+                    'winner_count' => $winners ? $winners->winner_count : 0,
+                    'total_bet_amount' => $winners ? $winners->total_bet_amount : 0,
+                    'total_win_amount' => $winners ? $winners->total_win_amount : 0
+                ];
+            }
+        }
+
+        return $this->success([
+            'date' => $date,
+            'sessions' => $results
+        ], "3D winner list for multiple draw sessions retrieved successfully");
+    }
 }

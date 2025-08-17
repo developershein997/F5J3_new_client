@@ -118,6 +118,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/threed-bet-slips-by-session', [ThreeDController::class, 'getBetSlipsBySession']);
     Route::get('/threed-daily-winners', [ThreeDController::class, 'dailyWinners']);
     
+    // 3D Winner List APIs
+    Route::get('/threed/winner-list', [ThreeDController::class, 'getWinnerListBySession']);
+    Route::post('/threed/winner-list-multiple', [ThreeDController::class, 'getWinnerListForMultipleSessions']);
+    
     // shan launch game
     Route::post('shan-launch-game', [ShanLaunchGameController::class, 'launch']);
 
