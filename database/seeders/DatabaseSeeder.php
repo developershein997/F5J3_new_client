@@ -110,6 +110,7 @@ class DatabaseSeeder extends Seeder
             ThreeDCloseDigitSeeder::class,
             ThreeDDrawSessionSeeder::class,
             ThreeDLimitSeeder::class,
+            GlobalChatRoomSeeder::class,
         ]);
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class ShanLaunchGameController extends Controller
+class V1_ShanLaunchGameController extends Controller
 {
     public function launch(Request $request)
     {
