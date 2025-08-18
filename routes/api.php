@@ -36,6 +36,7 @@ use App\Http\Controllers\Api\V2\Shan\ShankomeeGetBalanceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Player\AutoPlayerCreateController;
+use App\Http\Controllers\Api\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,7 +87,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('promotion', [PromotionController::class, 'index']);
 
     // fanicial api
-    Route::get('agentfinicialPaymentType', [BankController::class, 'all']);
+    //Route::get('agentfinicialPaymentType', [BankController::class, 'all']);
     Route::post('depositfinicial', [DepositRequestController::class, 'FinicialDeposit']);
     Route::get('depositlogfinicial', [DepositRequestController::class, 'log']);
     Route::get('paymentTypefinicial', [GSCPlusProviderController::class, 'paymentType']);
@@ -122,6 +123,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/threed/winner-list', [ThreeDController::class, 'getWinnerListBySession']);
     Route::post('/threed/winner-list-multiple', [ThreeDController::class, 'getWinnerListForMultipleSessions']);
     
+    // Chat System APIs
+    Route::get('/chat/global-info', [ChatController::class, 'getGlobalChatInfo']);
+    Route::post('/chat/join', [ChatController::class, 'joinGlobalChat']);
+    Route::post('/chat/leave', [ChatController::class, 'leaveGlobalChat']);
+    Route::post('/chat/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/chat/messages', [ChatController::class, 'getMessages']);
+    Route::post('/chat/update-status', [ChatController::class, 'updateOnlineStatus']);
+    Route::get('/chat/online-users', [ChatController::class, 'getOnlineUsers']);
+
     // shan launch game
     Route::post('shan-launch-game', [ShanLaunchGameController::class, 'launch']);
 
