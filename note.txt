@@ -141,4 +141,6 @@ GET /api/operators/provider-games?product_code=...&operator_code=...&offset=...&
 api/operators/wagers?operator_code=E004&sign=xxxxxx&request_time=1
  69155100?start=169155100000&end=169155100000
 
+ composer require westacks/telebot
+
  

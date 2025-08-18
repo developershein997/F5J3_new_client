@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\DepositRequestController;
 use App\Http\Controllers\Admin\GameListController;
 use App\Http\Controllers\Admin\LocalWagerController;
 use App\Http\Controllers\Admin\MasterController;
-use App\Http\Controllers\Admin\PaymentTypeController;
+//use App\Http\Controllers\Admin\PaymentTypeController;
 use App\Http\Controllers\Admin\PlayerController;
 use App\Http\Controllers\Admin\PlayerReportController;
 use App\Http\Controllers\Admin\ProductController;
@@ -59,7 +59,7 @@ Route::group([
     Route::resource('text', BannerTextController::class);
     Route::resource('/promotions', PromotionController::class);
     Route::resource('contact', ContactController::class);
-    Route::resource('paymentTypes', PaymentTypeController::class);
+    //Route::resource('paymentTypes', PaymentTypeController::class);
     Route::resource('bank', BankController::class);
     // Route::resource('product', ProductController::class);
 
