@@ -153,9 +153,9 @@ Route::get('/game_lists/{type}/{provider}', [GSCPlusProviderController::class, '
 Route::get('/game_lists/{type}/{productcode}', [GSCPlusProviderController::class, 'NewgameLists']);
 Route::get('/hot_game_lists', [GSCPlusProviderController::class, 'hotGameLists']);
 
-Route::group(['prefix' => 'shanreport', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('player-history', [ShanPlayerHistoryController::class, 'getPlayerHistory']);
-});
+// Route::group(['prefix' => 'shanreport', 'middleware' => ['auth:sanctum']], function () {
+//     Route::get('player-history', [ShanPlayerHistoryController::class, 'getPlayerHistory']);
+// });
 
 Route::group(['prefix' => 'shan'], function () {
     Route::post('getbalance', [ShanGetBalanceController::class, 'getBalance']);
