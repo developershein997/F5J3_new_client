@@ -43,8 +43,8 @@ return new class extends Migration
         // Add generated columns using raw SQL statement after table creation
 DB::statement(<<<SQL
     ALTER TABLE {$this->table()}
-    ADD COLUMN wager_id BIGINT GENERATED ALWAYS AS (CAST(JSON_UNQUOTE(JSON_EXTRACT(meta, '$.wager_id')) AS UNSIGNED)) STORED,
-    ADD COLUMN note TEXT GENERATED ALWAYS AS (JSON_UNQUOTE(JSON_EXTRACT(meta, '$.note'))) STORED;
+    ADD COLUMN wager_id BIGINT GENERATED ALWAYS AS ((meta->>'wager_id')::BIGINT) STORED,
+    ADD COLUMN note TEXT GENERATED ALWAYS AS (meta->>'note') STORED;
 SQL);
     }
 
