@@ -18,10 +18,10 @@ class ContactController extends Controller
     {
         $player = Auth::user();
 
-        $admin = $player->parent->parent->agent_id;
+        // $admin = $player->parent->parent->agent_id;
 
 
-        $contact = Contact::where('agent_id', $admin)->get();
+        $contact = Contact::where('agent_id', $player->agent_id)->get();
         //$contact = Contact::get();
 
         return $this->success(ContactResource::collection($contact));
