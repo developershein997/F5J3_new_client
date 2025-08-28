@@ -25,13 +25,13 @@ class DepositRequestController extends Controller
             'refrence_no' => ['required', 'digits:6'],
         ]);
         $player = Auth::user();
-        $image = null;
+        // $image = null;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = uniqid('deposit').'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/deposit/'), $filename);
-        }
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = uniqid('deposit').'.'.$image->getClientOriginalExtension();
+        //     $image->move(public_path('assets/img/deposit/'), $filename);
+        // }
 
         $depositData = [
             'agent_payment_type_id' => $request->agent_payment_type_id,
@@ -41,9 +41,9 @@ class DepositRequestController extends Controller
             'refrence_no' => $request->refrence_no,
         ];
 
-        if ($image) {
-            $depositData['image'] = $filename;
-        }
+        // if ($image) {
+        //     $depositData['image'] = $filename;
+        // }
 
         $deposit = DepositRequest::create($depositData);
 
