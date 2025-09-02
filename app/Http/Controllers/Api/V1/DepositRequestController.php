@@ -47,14 +47,14 @@ class DepositRequestController extends Controller
 
         $deposit = DepositRequest::create($depositData);
 
-        $agent = User::find($player->agent_id);
-        if ($agent) {
-            Log::info('Triggering PlayerDepositNotification for agent:', [
-                'agent_id' => $player->agent_id,
-                'deposit_id' => $deposit->id,
-            ]);
-            $agent->notify(new PlayerDepositNotification($deposit));
-        }
+        // $agent = User::find($player->agent_id);
+        // if ($agent) {
+        //     Log::info('Triggering PlayerDepositNotification for agent:', [
+        //         'agent_id' => $player->agent_id,
+        //         'deposit_id' => $deposit->id,
+        //     ]);
+        //     $agent->notify(new PlayerDepositNotification($deposit));
+        // }
 
         return $this->success($deposit, 'Deposit Request Success');
 
