@@ -19,11 +19,13 @@ class WithDrawRequestController extends Controller
     {
         $request->validate([
             'account_name' => ['required', 'string'],
-            'amount' => ['required', 'integer', 'min: 10000'],
+            'amount' => ['required', 'integer', 'min:10000'],
             'account_number' => ['required', 'regex:/^[0-9]+$/'],
             'payment_type_id' => ['required', 'integer'],
             'password' => ['required']
         ]);
+
+        // dd($request->all());
 
         $player = Auth::user();
 
@@ -31,7 +33,11 @@ class WithDrawRequestController extends Controller
             return $this->error('', 'Your password is wrong!', 401);
         }
 
-        if ($request->amount > $player->balanceFloat) {
+        // if ($request->amount > $player->balanceFloat) {
+        //     return $this->error('', 'Insufficient Balance!', 401);
+        // }
+
+        if (!isset($player->balanceFloat) || $request->amount > $player->balanceFloat) {
             return $this->error('', 'Insufficient Balance!', 401);
         }
 
