@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\WithdrawResource;
-use App\Models\WithDrawRequest;
-use App\Traits\HttpResponses;
 use Exception;
 use Illuminate\Http\Request;
+use App\Traits\HttpResponses;
+use App\Models\WithDrawRequest;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\WithdrawResource;
 
 class WithDrawRequestController extends Controller
 {
@@ -24,7 +25,7 @@ class WithDrawRequestController extends Controller
             'payment_type_id' => ['required', 'integer'],
             'password' => ['required']
         ]);
-
+         Log::info('Withdraw Request Data:', $request->all());
         // dd($request->all());
 
         $player = Auth::user();
