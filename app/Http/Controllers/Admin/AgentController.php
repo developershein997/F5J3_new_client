@@ -88,7 +88,7 @@ class AgentController extends Controller
     $isMaster = $authUser->hasRole('Master');
 
     // Get agents under current user
-    $users = User::with(['roles', 'children.poneWinePlayer'])
+    $users = User::with(['roles'])
         ->whereHas('roles', fn ($q) => $q->where('role_id', self::AGENT_ROLE))
         ->when(!$isOwner, function ($q) use ($authUser) {
             $q->where('agent_id', $authUser->id); // Limit if not Owner/Master
